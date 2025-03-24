@@ -1,4 +1,4 @@
-package com.example.SocialApp.model;
+package com.example.SocialApp.models;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -6,7 +6,7 @@ import lambok.Data;
 @Document(collection = "Users")
 
 @Data
-public class User {
+public class Users {
     @Id
     private String id;
     private String username;
