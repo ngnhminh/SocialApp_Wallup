@@ -18,7 +18,7 @@ const Contacts = () => {
 
   return (
     <aside className="h-full lg:w-[360px] w-40 border-r border-base-300  flex flex-col transition-all duration-200 overflow-x-hidden overflow-hidden hover:overflow-y-auto">
-      <div className=" border-b border-gray-500"></div>
+  
 
       <div className=" flex flex-col w-full px-3 ">
 
@@ -33,8 +33,6 @@ const Contacts = () => {
               <Ellipsis size={22} />
             </div>
           </div>
-
-
         </div>
 
         <div className="overflow-y-auto w-full py-3">
