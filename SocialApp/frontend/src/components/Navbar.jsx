@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { House, Search, Store, TvMinimalPlay, Users, Gamepad, Grid, Grip, Bell, UserRound } from "lucide-react";
+import { House, Search, Store, TvMinimalPlay, Gamepad, Grip, Bell, UserRound } from "lucide-react";
 
 
 
@@ -8,9 +8,7 @@ const Navbar = () => {
 
 
   return (
-    <header
-      className="border-y border-gray-700 fixed w-full top-0 z-40 backdrop-blur-lg bg-base-100/80"
-    >
+    <header className="border-y border-gray-700 fixed w-full top-0 z-40 backdrop-blur-lg bg-base-100/80">
       <div className="container  mx-auto h-[56px]">
         <div className="flex items-center  justify-between h-full">
           <div className="flex items-center box-border p-4 w-[360px] gap-3">
