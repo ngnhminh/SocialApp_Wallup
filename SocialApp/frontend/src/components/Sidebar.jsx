@@ -1,10 +1,10 @@
 
-import { ChevronDown, User, Users } from "lucide-react";
+import { ChevronDown} from "lucide-react";
 
 const Sidebar = () => {
 
   return (
-    <aside className=" lg:w-[360px] h-full flex flex-col pt-4 overflow-y-hidden hover:overflow-y-auto transition-all duration-500">
+    <aside className=" lg:w-[360px] h-full flex flex-col pt-4 overflow-y-hidden hover:overflow-y-auto transition-all duration-500 ">
       {/* Tính năng */}
         <div className=" flex flex-col w-full px-2 cursor-pointer">
             <div className="flex flex-col justify-center h-[52px] pl-2 hover:bg-base-100 rounded-xl ">
