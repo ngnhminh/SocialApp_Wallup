@@ -1,0 +1,14 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/SocialApp_Wallup 
+  application:
+    name: USER-SERVICE
+
+eureka:
+  client:
+    serviceUrl: 
+      defaultZone: http://localhost:8761/eureka
+
+server:
+  port: 8081 
