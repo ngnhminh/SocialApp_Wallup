@@ -11,18 +11,16 @@ const Content = () => {
   }
 
   return (
-  <div className=" px-[32px]  flex-1 md:px-auto md:mx-auto  bg-base-200 overflow-hidden hover:overflow-auto ">
-    <div className=" flex flex-col shrink-0 w-[590px] pt-4 max-w-full px-auto mx-auto  gap-3">
+
+    <div className=" flex flex-col h-full  shrink-0 w-[590px] max-x-full min-w-[0] pt-4 max-w-full px-auto gap-3">
       {/* Status */}
-      <div className='flex flex-col rounded-lg bg-base-100 px-[16px] pt-[12px] pb-[10px] '>
-        <div className='flex items-center justify-start gap-3 '> 
+      <div className='flex flex-col rounded-lg bg-base-100 px-[16px] pt-[12px] pb-[10px]  '>
+        <div className='flex items-center justify-start gap-3 pb-[12px]  border-b border-gray-600 '> 
           <img src="IMG_7810.jpg" alt="avt" className=' size-[40px] inline-block rounded-full object-cover cursor-pointer hover:brightness-110 hover:opacity-95' />
           <button className="btn btn-soft rounded-3xl flex-1 font-[Segoe UI Historic] hover:bg-gray-700  text-gray-300 justify-start text-[17px]">
             Minh ơi, bạn đang làm gì thế?
           </button>
         </div>
-
-        <div className="  pt-[12px] border-b border-gray-600"></div>
 
         <div className='flex items-center pt-[12px] justify-between '> 
           <button className="btn bg-transparent rounded-lg border-none shadow-none hover:bg-gray-700 flex-1 flex items-center">
@@ -46,9 +44,9 @@ const Content = () => {
         </div>
       </div>
       {/* Story */}
-      <div className=' flex gap-2 '>
+      <div className=' flex gap-2 overflow-hidden  '>
 
-        <div className='w-[112px] h-[200px] rounded-xl  flex-none relative overflow-hidden cursor-pointer'> 
+        <div className='w-[112px] h-[200px] rounded-xl  flex-none relative cursor-pointer'> 
           <div className=' size-full hover:scale-102 hover:brightness-90 transition-all duration-300 '
                   style={{
                     backgroundImage: 'url("IMG_7810.jpg")',
@@ -201,7 +199,7 @@ const Content = () => {
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam quidem, necessitatibus rerum quod consequatur maiores!
           </span>
           <a href="/">
-            <div className="bg-base-100 flex items-center justify-center">
+            <div className=" flex items-center justify-center">
               <img
                 src="avatar.png"
                 alt="Ảnh"
@@ -252,7 +250,7 @@ const Content = () => {
         </div>
       </div>
     </div>
-  </div>
+
   )
 }
 
