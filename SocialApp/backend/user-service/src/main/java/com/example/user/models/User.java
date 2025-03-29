@@ -4,31 +4,33 @@ import java.time.LocalDate;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.Field;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Document(collection = "Users")
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class User {
     @Id
     private String id;
     private String username;
     private String email;
     private String password;
-    private String full_name;
-    private String avatar_url;
-    
-    @Field("Bio")
+    private String fullName;
+    private String avatarUrl;
     private String bio;
-    @Field("Created_at")
-    private LocalDate created_At;
-    @Field("Updated_at")
-    private LocalDate updated_At;
-    public static class UserCreatedDateBuilder {
-        private LocalDate create_At = LocalDate.now();
-    }
-    public static class UserUpdatedDateBuilder {
-        private LocalDate updated_At = LocalDate.now();
-    }
+    
+    @JsonFormat(pattern = "dd/MM/yyyy")
+    @Builder.Default
+    private LocalDate createdAt = LocalDate.now();
+    @JsonFormat(pattern = "dd/MM/yyyy")
+    @Builder.Default
+    private LocalDate updatedAt = LocalDate.now();
 }

@@ -1,8 +1,12 @@
-package com.example.SocialApp.models;
+package com.example.post.models;
+import java.time.LocalDate;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import lambok.Data;
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import lombok.*;
 @Document(collection = "Posts")
 @NoArgsConstructor
 @AllArgsConstructor
@@ -15,8 +19,7 @@ public class Posts {
     private String Content;
     private String Image_url;
     
-    private LocalDate created_At;
-    public static class PostBuilder {
-        private LocalDate create_At = LocalDate.now();
-    }
+    @JsonFormat(pattern = "dd/MM/yyyy")
+    @Builder.Default
+    private LocalDate created_At = LocalDate.now();;
 }

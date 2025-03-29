@@ -1,9 +1,12 @@
-package com.example.SocialApp.models;
+package com.example.post.models;
+import java.time.LocalDate;
 
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
-import lambok.Data;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import lombok.*;
 
 @Document(collection = "Comments")
 @Data
@@ -14,11 +17,11 @@ public class Comments {
     @Id
     private String id;
     private String content;
-    private LocalDate created_At;
     private String postId;
     private String userId;
 
-    public static class CommentBuilder {
-        private LocalDate created_At = LocalDate.now();
-    }
+    @JsonFormat(pattern = "dd/MM/yyyy")
+    @Builder.Default
+    private LocalDate createdAt = LocalDate.now();
+    
 }

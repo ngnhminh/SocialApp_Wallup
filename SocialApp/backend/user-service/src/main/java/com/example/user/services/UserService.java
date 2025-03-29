@@ -1,32 +1,40 @@
 package com.example.user.services;
-import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.user.models.User;
 import com.example.user.repositories.UserRepository;
 
-@Service    
+@Service
+@Transactional
 public class UserService {
     private final UserRepository userRepository;
 
-    @Autowired
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
-
-    public User getUserByUserName(String userName) {
-        return userRepository.findByusername(userName);
-    }
     
-    public List<User> getAllUsers() {
+    public Optional<User> getUserByUserName(String username) {
+        return Optional.ofNullable(userRepository.findByUsername(username));
+    }
+
+    public List<User> getAllUsers(){
         return userRepository.findAll();
     }
 
-    @Transactional
-    public void updateUser(User user) {
-        // Cập nhật dữ liệu
+    public User createUser(User user){
+        return userRepository.save(user);
+    }
+
+    public boolean deletetUserById(String id){
+        if(userRepository.existsById(id)){
+            userRepository.deleteById(id);
+            return true;
+        }
+        return false;
     }
 }

@@ -1,7 +1,7 @@
 spring:
   data:
     mongodb:
-      uri: mongodb://localhost:27017/SocialApp_Wallup 
+      uri: mongodb://localhost:27017/SocialApp_Wallub 
   application:
     name: USER-SERVICE
 

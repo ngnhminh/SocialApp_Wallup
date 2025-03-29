@@ -1,11 +1,14 @@
-package com.example.SocialApp.models;
+package com.example.groupchat.models;
 
 import java.time.LocalDate;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-import java.time.LocalDate;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import lombok.*;
+
 @Document(collection = "GroupMessages")
 @NoArgsConstructor
 @AllArgsConstructor
@@ -16,14 +19,13 @@ public class GroupMessages {
     private String id;
     private String groupId;
     private String senderId; //User
-    private String message_Text;
+    private String messageText;
 
     @Builder.Default
-    private boolean is_Read = false;
+    private boolean isRead = false;
 
-    private LocalDate created_At;
-
-    public static class GroupMessageBuilder {
-        private LocalDate created_At = LocalDate.now();
-    }
+    @JsonFormat(pattern = "dd/MM/yyyy")
+    @Builder.Default
+    private LocalDate createdAt = LocalDate.now();
+    
 }

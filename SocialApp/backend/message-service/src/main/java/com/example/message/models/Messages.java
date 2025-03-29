@@ -1,8 +1,11 @@
-package com.example.SocialApp.models;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.DBRef;
-import org.springframework.data.mongodb.core.mapping.Document;
+package com.example.message.models;
 import java.time.LocalDate;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import lombok.*;
 
 @Data
@@ -16,15 +19,13 @@ public class Messages {
 
     private String senderId; //User người gửi 
 
-    private String receiverId;//User người nhận
-    private String message_Text;
+    private String receiverId; //User người nhận
+    private String messageText;
 
     @Builder.Default
-    private Boolean is_Read = false;
-
-    private LocalDate created_At;
-
-    public static class MessageBuilder {
-        private LocalDate create_At = LocalDate.now();
-    }
+    private Boolean isRead = false;
+    
+    @Builder.Default
+    @JsonFormat(pattern = "dd/MM/yyyy")
+    private LocalDate createdAt = LocalDate.now();
 }

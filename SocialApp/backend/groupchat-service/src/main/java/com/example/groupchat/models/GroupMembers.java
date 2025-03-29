@@ -1,6 +1,9 @@
-package com.example.SocialApp.models;
+package com.example.groupchat.models;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.time.LocalDate;
 import lombok.*;
 @Document(collection = "GroupMembers")
@@ -11,11 +14,11 @@ import lombok.*;
 public class GroupMembers {
     @Id
     private String id;
-    private String GroupChatId;
-    private String UserId;
-    private LocalDate joined_At;
+    private String groupChatId;
+    private String userId;
     
-    public static class GroupMemberBuilder {
-        private LocalDate joined_At = LocalDate.now();
-    }
+    @JsonFormat(pattern = "dd/MM/yyyy")
+    @Builder.Default
+    private LocalDate joinedAt = LocalDate.now();
+    
 }

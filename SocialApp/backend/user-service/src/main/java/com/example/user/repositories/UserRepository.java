@@ -7,5 +7,5 @@ import com.example.user.models.User;
 
 @Repository
 public interface UserRepository extends MongoRepository<User, String> {
-    User findByusername(String username);
+    User findByUsername(String username);
 }
