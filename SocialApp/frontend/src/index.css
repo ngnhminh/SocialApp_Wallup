@@ -2,10 +2,9 @@
 @plugin "daisyui";  
 
 .scrollbar {
-    
-    scrollbar-color: transparent transparent;
-  }
-
-  .scrollbar:hover{
-    scrollbar-color: #656d75 transparent;
-  }
+  scrollbar-color: transparent transparent;
+}
+  
+.scrollbar:hover{
+  scrollbar-color: #656d75 transparent;
+}

@@ -20,7 +20,7 @@ const Navbar = () => {
               <path d="M13.651 35.471v-11.97H9.936V18h3.715v-2.37c0-6.127 2.772-8.964 8.784-8.964 1.138 0 3.103.223 3.91.446v4.983c-.425-.043-1.167-.065-2.081-.065-2.952 0-4.09 1.116-4.09 4.025V18h5.883l-1.008 5.5h-4.867v12.37a18.183 18.183 0 0 1-6.53-.399Z" fill="white"></path>
             </svg>
           </Link>
-          <label className="input bg-base-100 rounded-3xl w-[240px] border-none  ">
+          <label className="input bg-base-100 rounded-3xl w-[240px] border-none !outline-none">
             <Search className=" size-5" />
             <input type="search" className=" font-[Segoe UI Historic] text-[15px] "  required placeholder="Tìm kiếm trên FaceBook"/>
           </label>
@@ -68,7 +68,7 @@ const Navbar = () => {
         </div>
 
         <div className="flex justify-end items-center  box-border p-4 w-[360px] gap-1">
-            <button className="btn btn-square  bg-gray-700 hover:bg-gray-600 size-[40px] rounded-full">
+            <button className="btn btn-square bg-gray-700 hover:bg-gray-600 size-[40px] rounded-full">
                 <GridIcon />
             </button>
             <button className="btn btn-square  bg-gray-700 hover:bg-gray-600 size-[40px] rounded-full">

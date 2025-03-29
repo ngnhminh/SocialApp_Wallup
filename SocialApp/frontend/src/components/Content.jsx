@@ -29,7 +29,7 @@ const Content = () => {
             alt="video" />
             Video trực tiếp
           </button>
-          <button className="btn bg-transparent rounded-lg border-none shadow-none hover:bg-gray-700 flex-1 flex items-center">
+          <button className="btn btn-ghost rounded-lg border-none shadow-none hover:bg-gray-700 flex-1 flex items-center">
             <img 
             src='https://static.xx.fbcdn.net/rsrc.php/v4/y7/r/Ivw7nhRtXyo.png?_nc_eui2=AeEMroBTsaHpzLJ6ruiXw-qikBVQC4m7dx6QFVALibt3HqX_qmSrEWxAO-b0Aobdcw9t5lK_kiRCl6YSOsNxS8pQ'
             alt="image" />

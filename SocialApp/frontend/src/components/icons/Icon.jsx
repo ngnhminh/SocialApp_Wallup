@@ -16,4 +16,9 @@ export const NotifyIcon = () => {
     <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true" className="xfx01vb x1lliihq x1tzjh5l x1k90msu x2h7rmj x1qfuztq" ><path d="M3 9.5a9 9 0 1 1 18 0v2.927c0 1.69.475 3.345 1.37 4.778a1.5 1.5 0 0 1-1.272 2.295h-4.625a4.5 4.5 0 0 1-8.946 0H2.902a1.5 1.5 0 0 1-1.272-2.295A9.01 9.01 0 0 0 3 12.43V9.5zm6.55 10a2.5 2.5 0 0 0 4.9 0h-4.9z"></path></svg>
   )
 }
+export const InfoIcon = () => {
+  return (
+    <svg height="24px" viewBox="0 0 36 36" width="24px" fill="#a501fd" ><g transform="translate(18,18)scale(1.2)translate(-18,-18)"><path d="M18,10 C16.6195,10 15.5,11.119 15.5,12.5 C15.5,13.881 16.6195,15 18,15 C19.381,15 20.5,13.881 20.5,12.5 C20.5,11.119 19.381,10 18,10 Z M16,25 C16,25.552 16.448,26 17,26 L19,26 C19.552,26 20,25.552 20,25 L20,18 C20,17.448 19.552,17 19,17 L17,17 C16.448,17 16,17.448 16,18 L16,25 Z M18,30 C11.3725,30 6,24.6275 6,18 C6,11.3725 11.3725,6 18,6 C24.6275,6 30,11.3725 30,18 C30,24.6275 24.6275,30 18,30 Z" fill="var(--mwp-header-button-color)" stroke="var(--mwp-header-button-color)"></path></g></svg>
+  )
+}
 
