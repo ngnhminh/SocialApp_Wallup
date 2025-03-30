@@ -1,8 +1,8 @@
 import React from 'react'
 
-import Sidebar from "../components/Sidebar";
-import Content from "../components/Content";
-import Contacts from "../components/Contacts";
+import Sidebar from "../components/Home/Sidebar";
+import Content from "../components/Home/Content";
+import Contacts from "../components/Home/Contacts";
 import { SquarePen } from 'lucide-react';
 
 const HomePage = () => {

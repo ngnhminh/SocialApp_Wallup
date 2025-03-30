@@ -1,7 +1,7 @@
 import { useEffect} from "react";
-import { useChatStore } from "../store/useChatStore";
-import { useAuthStore } from "../store/useAuthStore";
-import SidebarChatSkeleton from "./skeletons/SidebarChatSkeleton";
+import { useChatStore } from "../../store/useChatStore";
+import { useAuthStore } from "../../store/useAuthStore";
+import SidebarChatSkeleton from "../skeletons/SidebarChatSkeleton";
 import { ChevronDown, Ellipsis, Search, SquarePen } from "lucide-react";
 
 const SidebarChat = () => {
@@ -33,7 +33,7 @@ const SidebarChat = () => {
         </div>
 
         <div className="block relative pt-[12px] px-[16px] ">
-          <label className="input bg-base-100 rounded-3xl grow-1 border-none  ">
+          <label className="input bg-base-100 rounded-3xl grow-1 border-none !outline-none ">
             <Search className=" size-5" />
             <input type="search" className=" font-[Segoe UI Historic] text-[15px]"  required placeholder="Tìm kiếm trên Message"/>
           </label>

@@ -1,7 +1,7 @@
 import { useEffect} from "react";
-import { useChatStore } from "../store/useChatStore";
-import { useAuthStore } from "../store/useAuthStore";
-import ContactsSkeleton from "./skeletons/ContactsSkeleton";
+import { useChatStore } from "../../store/useChatStore";
+import { useAuthStore } from "../../store/useAuthStore";
+import ContactsSkeleton from "../skeletons/ContactsSkeleton";
 import { Ellipsis, Plus, Search } from "lucide-react";
 
 const Contacts = () => {

@@ -1,68 +1,64 @@
-import { Search, Ellipsis } from "lucide-react";
+import { Search, Ellipsis,SquarePen } from "lucide-react";
 
 const ContactsSkeleton = () => {
   // Create 8 skeleton items
   const skeletonContacts = Array(6).fill(null);
 
   return (
-    <aside
-      className="h-full lg:w-[360px] w-40 border-r border-base-300 
-    flex flex-col transition-all duration-200 px-3 overflow-y-auto"
-    >
-      {/* Header */}
-      <div className="flex items-center justify-between pt-[20px] pb-[4px]">
-          <span className=" text-gray-200 text-[17px]">Người liên hệ</span>
-          <div className="flex cursor-pointer gap-3">
-            <div className="flex items-center justify-center size-[32px] rounded-full hover:bg-gray-600">
-              <Search size={17}/>
-            </div>
-            <div className="flex items-center justify-center size-[32px] rounded-full hover:bg-gray-600">
-              <Ellipsis size={22} />
-            </div>
-          </div>
+  <aside className="flex flex-col h-[calc(100vh-56px)] w-[360px] bg-base-100 relative">
+    <div className=" flex flex-col flex-1 gap-2">
+
+      <div className="flex items-end justify-between mx-[16px] mt-[20px] ">
+        <span className=" text-[24px] font-bold ">Đoạn Chat</span>
+        <div className="flex gap-3">
+          <button className="btn btn-circle size-[36px] bg-gray-600 hover:bg-gray-500 ">
+            <Ellipsis />
+          </button>
+          <button className="btn btn-circle size-[36px] bg-gray-600 hover:bg-gray-500 ">
+            <SquarePen size={20} />
+          </button>
         </div>
-      {/* Skeleton Contacts */}
-      <div className=" w-full py-3">
+      </div>
+
+      <div className="block relative pt-[12px] px-[16px] ">
+        <label className="input bg-base-100 rounded-3xl grow-1 border-none !outline-none ">
+          <Search className=" size-5" />
+          <input type="search" className=" font-[Segoe UI Historic] text-[15px]"  required placeholder="Tìm kiếm trên Message"/>
+        </label>
+      </div>
+
+      <div className="flex justify-start items-center gap-1 ">
+        <button className="btn btn-ghost hover:bg-gray-700 rounded-3xl">
+            Hộp Thư
+        </button>
+        <button className="btn btn-ghost hover:bg-gray-700 rounded-3xl">
+            Cộng Đồng
+        </button>
+      </div>
+
+      <div className="block relative">
+        
+        {/* Skeleton Contacts */}
+        <div className=" w-full py-3">
         {skeletonContacts.map((_, idx) => (
           <div key={idx} className="w-full p-3 flex items-center gap-3">
             {/* Avatar skeleton */}
             <div className="relative mx-auto lg:mx-0">
-              <div className="skeleton size-10 rounded-full" />
+              <div className="skeleton size-[56px] rounded-full" />
             </div>
 
             {/* User info skeleton - only visible on larger screens */}
             <div className="hidden lg:block text-left min-w-0 flex-1">
-              <div className="skeleton h-3 w-32 mb-2" />
-              <div className="skeleton h-2 w-16" />
+              <div className="skeleton h-[24px] w-32 mb-2" />
+              <div className="skeleton h-3 w-16" />
             </div>
           </div>
         ))}
-      </div>
+        </div>
+        </div>
+    </div>
 
-      <div className=" border-b border-gray-600"></div> 
-
-      {/* Header */}
-      <span className=" text-gray-200 text-[17px] pt-[20px] pb-[4px]">Nhóm chat</span>
-
-      {/* Skeleton Contacts */}
-      <div className=" w-full py-3">
-        {skeletonContacts.map((_, idx) => (
-          <div key={idx} className="w-full p-3 flex items-center gap-3">
-            {/* Avatar skeleton */}
-            <div className="relative mx-auto lg:mx-0">
-              <div className="skeleton size-10 rounded-full" />
-            </div>
-
-            {/* User info skeleton - only visible on larger screens */}
-            <div className="hidden lg:block text-left min-w-0 flex-1">
-              <div className="skeleton h-3 w-32 mb-2" />
-              <div className="skeleton h-2 w-16" />
-            </div>
-          </div>
-        ))}
-      </div>
-
-    </aside>
+  </aside>
   );
 };
 

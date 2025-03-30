@@ -1,8 +1,8 @@
 import React from 'react'
 
-import SidebarChat from './../components/SidebarChat';
-import ContainerChat from './../components/ContainerChat';
-import InforChat from './../components/InforChat';
+import SidebarChat from './../components/chat/SidebarChat';
+import ContainerChat from './../components/chat/ContainerChat';
+import InforChat from './../components/chat/InforChat';
 
 const ChatPage = () => {
   return (
