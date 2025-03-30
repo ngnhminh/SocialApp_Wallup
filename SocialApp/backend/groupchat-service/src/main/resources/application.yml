@@ -1,4 +1,14 @@
 spring:
   data:
     mongodb:
-      uri: mongodb://localhost:27017/SocialApp_Wallub
+      uri: mongodb://localhost:27017/SocialApp_Wallub 
+  application:
+    name: GROUPCHAT-SERVICE
+
+eureka:
+  client:
+    serviceUrl: 
+      defaultZone: http://localhost:8761/eureka
+
+server:
+  port: 8084
