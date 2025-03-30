@@ -7,19 +7,21 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.*;
-@Document(collection = "Posts")
+
+@Document(collection = "Comments")
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Data
-public class Posts {
+public class Comment {
     @Id
     private String id;
+    private String content;
+    private String postId;
     private String userId;
-    private String Content;
-    private String Image_url;
-    
+
     @JsonFormat(pattern = "dd/MM/yyyy")
     @Builder.Default
-    private LocalDate created_At = LocalDate.now();;
+    private LocalDate createdAt = LocalDate.now();
+    
 }

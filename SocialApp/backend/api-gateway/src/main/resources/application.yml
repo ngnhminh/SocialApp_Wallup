@@ -11,18 +11,41 @@ spring:
         locator:
           enabled: true  # Tự động định tuyến theo Eureka
       routes:
+        #Cấu hình cổng file user-service
         - id: user-service
           uri: lb://USER-SERVICE
           predicates:
             - Path=/users/**
-        # - id: order-service
-        #   uri: lb://ORDER-SERVICE
-        #   predicates:
-        #     - Path=/orders/**
-        # - id: product-service
-        #   uri: lb://PRODUCT-SERVICE
-        #   predicates:
-        #     - Path=/products/**
+
+        #Cấu hình cổng file user-service
+        - id: post-service
+          uri: lb://POST-SERVICE
+          predicates:
+            - Path=/posts/**
+
+        #Cấu hình cổng file message-service  
+        - id: message-service
+          uri: lb://MESSAGE-SERVICE
+          predicates:
+            - Path=/messages/**
+
+        #Cấu hình cổng file groupchat-service  
+        - id: groupchat-service
+          uri: lb://GROUPCHAT-SERVICE
+          predicates:
+            - Path=/groupchats/**
+
+        #Cấu hình cổng file friendship-service  
+        - id: friendship-service
+          uri: lb://FRIENDSHIP-SERVICE
+          predicates:
+            - Path=/friendships/**
+
+        #Cấu hình cổng file comment-service  
+        - id: comment-service
+          uri: lb://COMMENT-SERVICE
+          predicates:
+            - Path=/comments/**
 
 eureka:
   client:
