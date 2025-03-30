@@ -1,4 +1,6 @@
 import React from 'react'
+import { AlignJustify, Grid2X2, Settings, SlidersHorizontal } from 'lucide-react'
+import { Ellipsis } from 'lucide-react';
 
 const ProfileBody = () => {
   return (
@@ -554,7 +556,280 @@ const ProfileBody = () => {
                 </footer>
             </div>
 
-            <div className='block basis-[500px] grow-25 m-[8px] box-border max-w-[680px] min-w-0 relative '></div>
+            <div className='block basis-[500px] grow-25 m-[8px] box-border max-w-[680px] min-w-0 relative '>
+                
+                <div className='block mb-[16px] bg-base-100 rounded-xl '>
+                    <div className='block overflow-hidden w-[590.112px]'>
+                        <div className='flex flex-col items-stretch px-[16px] pb-[12px] pt-[15px]'>
+
+                            <div className=' flex items-start grow-1 w-[558.112px] cursor-pointer'>
+                                <a href="#" className='flex items-stretch mr-[8px] box-border relative hover:brightness-105 '>
+                                    <div className='block rounded-full overflow-hidden'>
+                                        <img 
+                                            className=' size-[40px] object-cover'
+                                            src="IMG_7810.jpg" alt="" />
+                                    </div>
+                                </a>
+                                <div className='flex items-center justify-start grow-1 h-[40px] py-[8px] px-[12px] bg-gray-700 hover:brightness-105  relative rounded-3xl '>
+                                    <div className='block  w-[486.112px] break-words'>
+                                        <span className=' text-[17px] leading-[22.78px]'>Bạn đang nghĩ gì</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className='flex flex-wrap justify-around h-[40px] mt-[12px] pt-[8px] 
+                                            border-t border-gray-600 box-content gap-1 '>
+
+                                <button className='btn btn-ghost basis-0 grow-1 shrink-1 min-w-fit min-h-0  p-[8px] box-border
+                                                hover:bg-gray-700 rounded-xl relative '>
+                                    <div className='flex items-center justify-center grow-1 leading-[12.8004px] overflow-hidden '>
+                                        <span className='flex grow-0 mr-[8px]'>
+                                            <img height="24" width="24" alt="" 
+                                                className="" referrerpolicy="origin-when-cross-origin" src="https://static.xx.fbcdn.net/rsrc.php/v4/yr/r/c0dWho49-X3.png?_nc_eui2=AeFqDwA6fw6iTrTQGAumwQtNueRic5Ym8Wm55GJzlibxaVnALaFOd322f5n2N5UNg6ipEqYOv6duLAizpKffawNX"/>
+                                        </span>
+                                        <span className='block leading-[19.9995px] max-w-full min-w-0 text-[15px] font-semibold break-words'>
+                                            <span className='block  text-nowrap overflow-hidden leading-[19.9995px] max-w-full min-w-0 text-[15px] font-semibold break-words'>
+                                                Video trực tiếp
+                                            </span>
+                                        </span>
+                                    </div>
+                                </button>
+
+                                <button className='btn btn-ghost basis-0 grow-1 shrink-1 min-w-fit min-h-0  p-[8px] box-border
+                                                hover:bg-gray-700 rounded-xl relative '>
+                                    <div className='flex items-center justify-center grow-1 leading-[12.8004px] overflow-hidden '>
+                                        <span className='flex grow-0 mr-[8px]'>
+                                            <img height="24" width="24" alt="" 
+                                                className="" referrerpolicy="origin-when-cross-origin" src='https://static.xx.fbcdn.net/rsrc.php/v4/y7/r/Ivw7nhRtXyo.png?_nc_eui2=AeEMroBTsaHpzLJ6ruiXw-qikBVQC4m7dx6QFVALibt3HqX_qmSrEWxAO-b0Aobdcw9t5lK_kiRCl6YSOsNxS8pQ'/>
+                                        </span>
+                                        <span className='block leading-[19.9995px] max-w-full min-w-0 text-[15px] font-semibold break-words'>
+                                            <span className='block  text-nowrap overflow-hidden leading-[19.9995px] max-w-full min-w-0 text-[15px] font-semibold break-words'>
+                                                Ảnh/Video
+                                            </span>
+                                        </span>
+                                    </div>
+                                </button>
+
+                                <button className='btn btn-ghost basis-0 grow-1 shrink-1 min-w-fit min-h-0  p-[8px] box-border
+                                                hover:bg-gray-700 rounded-xl relative '>
+                                    <div className='flex items-center justify-center grow-1 leading-[12.8004px] overflow-hidden '>
+                                        <span className='flex grow-0 mr-[8px]'>
+                                            <img height="24" width="24" alt="" 
+                                                className="" referrerpolicy="origin-when-cross-origin"
+                                                src='https://static.xx.fbcdn.net/rsrc.php/v4/yd/r/pkbalDbTOVI.png?_nc_eui2=AeENK4any3f7B1k0P1pDNJMrxUvOOua_OjbFS8465r86NmmeQwWTWdpHQ6-ZmYW_xz7lC16iArnKa3sx8xNdf1oy' />
+                                        </span>
+                                        <span className='block leading-[19.9995px] max-w-full min-w-0 text-[15px] font-semibold break-words'>
+                                            <span className='block  text-nowrap overflow-hidden leading-[19.9995px] max-w-full min-w-0 text-[15px] font-semibold break-words'>
+                                                Sự kiện trong đời
+                                            </span>
+                                        </span>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div className='block mb-[16px] bg-base-100 rounded-xl '>
+
+                    <div className='block w-[590.112px] pt-2 overflow-hidden'>
+
+                        <div className='flex items-stretch justify-between -m-[6px] px-[16px] box-border relative '>
+
+                            <div className='flex flex-col self-center shrink-0 p-[6px] box-border relative '>
+                                <div className='flex flex-col my-[6px]'>
+                                    <div className='block my-[6px]'>
+                                        <span className='block text-[20px] font-bold leading-[24px] break-words text-start'>
+                                            Bài viết
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className='flex flex-col self-center shrink-0 p-[6px] relative  '>
+                                <div className='flex py-[8px]'>
+
+                                    <div className='inline-flex flex-col justify-center w-[88.075px] bg-gray-700 rounded-lg '>
+                                        <div className='btn btn-soft h-[36px] px-[12px] hover:bg-gray-700 rounded-lg relative '>
+                                            <div className='flex items-center justify-center -mx-[3px] w-[70.075px] '>
+                                                <div className='flex items-center shrink-0 mx-[3px] relative '>
+                                                    <SlidersHorizontal size={16} />
+                                                </div>
+                                                <div className='flex items-center shrink-0 mx-[3px] relative '>
+                                                    <span>Bộ lọc</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div className='inline-flex flex-col justify-center w-[152.125px] box-content ml-[8px] '>
+                                        <button className='btn btn-soft h-[36px] px-[12px] hover:bg-gray-700 rounded-lg relative '>
+                                            <div className='flex items-center justify-center -mx-[3px] w-[70.075px] '>
+                                                <div className='flex items-center shrink-0 mx-[3px] relative '>
+                                                    <Settings size={16} />
+                                                </div>
+                                                <div className='flex items-center shrink-0 mx-[3px] relative '>
+                                                    <span>Quản lý bài viết</span>
+                                                </div>
+                                            </div>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className='block border-t border-gray-600'></div>
+
+                        <div className='flex items-stretch justify-between mx-[16px] mt-1 box-content relative '>
+                            <div className='flex flex-col grow-1 relative'>
+                                <a href="#" className='flex'>
+                                    <div className='flex items-center justify-center text-blue-600 h-[40px] w-[279.062px] min-h-[16px] relative'>
+                                        <div className='block mr-[4px] '>
+                                            <AlignJustify />
+                                        </div>
+                                        <span className='text-[15px] font-semibold block break-words leading-[20px]'>
+                                            Chế độ xem danh sách
+                                        </span>
+                                        <div className='block bg-blue-600 h-[3px] absolute bottom-0 right-0 left-0'></div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div className='flex flex-col grow-1 relative'>
+                                <a href="#" className='flex'>
+                                    <button className='btn btn-ghost hover:bg-gray-700 rounded-lg h-[40px] w-[279.062px] min-h-[16px] relative'>
+                                        <div className='flex flex-col mr-[4px] '>
+                                            <i className="inline-block size-4 bg-no-repeatfilter invert" 
+                                                style={{
+                                                    fill: "white",
+                                                    backgroundImage: "url('https://static.xx.fbcdn.net/rsrc.php/v4/yI/r/MHWISMefH0t.png?_nc_eui2=AeHTcbWJgotwPjCh7ZnSd-yJDGPiywJHNyoMY-LLAkc3KlvVJdWWiFFRZEzawrqRd74SqO6QuowgplFPaff-W6HL')",
+                                                    backgroundPosition: "0 -211px"
+                                                }}>
+                                            </i>
+                                        </div>
+                                        <span className='text-[15px] font-semibold block break-words leading-[20px]'>
+                                            Chế độ xem lưới
+                                        </span>
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div className='block bg-base-100 rounded-xl'>
+                    <div className='block w-[590.112px] mb-[16px] overflow-hidden relative'>
+
+                        <div className='flex items-start mb-[12px] px-[12px] pt-[12px] h-[48px] '>
+
+                            <div className='flex mr-[8px]'>
+                                <div className='block size-[40px] overflow-hidden rounded-full'>
+                                    <a href="#">
+                                        <img 
+                                            className=' object-cover'
+                                            src="IMG_7810.jpg" alt="" />
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div className='block grow-1'>
+                                <div className='flex flex-col -my-[5px]'>
+                                    <div className='flex items-center my-[5px]'>
+                                        <span className='inline text-[15px] font-semibold leading-[20px] break-words '>
+                                            Hải Minh
+                                        </span>
+                                    </div>
+                                    <div className='flex items-center my-[5px] h-[9px] box-border '>
+                                        <span className='inline text-[12px] font-normal leading-[20px] break-words '>
+                                            <span>25 tháng 2, 2024</span>
+                                            <span>&nbsp; . &nbsp;</span>
+                                            <span>
+                                                <img    
+                                                    className="inline-block filter invert" alt="Bạn bè" height="12" width="12" 
+                                                    src="https://static.xx.fbcdn.net/rsrc.php/v4/yJ/r/zPcex_q0TM1.png?_nc_eui2=AeFf6A6nRCYgn6vHdbuSntc5_tC9Vssymsf-0L1WyzKaxxfrQR2zPcHO0g0sptCBv4AKqT375EUtC689Crte1vzF"/>
+                                            </span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className='flex self-start p-[8px] box-border'>
+                                <button className='btn btn-circle btn-ghost hover:bg-gray-700 size-[36px]'>
+                                    <Ellipsis />
+                                </button>
+                                
+                            </div>
+                        </div>
+
+                        <div className='block'>
+                            <div className='block'>
+                                <div className='block px-[12px] pb-[16px] pt-[4px]'>
+                                    <div className='flex flex-col -my-[5px]'>
+                                        <div className='block my-[5px]'>
+                                            <span className='block text-[15px] font-normal leading-[20px] break-words text-start'>
+                                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta debitis nobis vel aperiam laboriosam nostrum omnis fuga quaerat officiis necessitatibus quos, iusto culpa tempora consequatur exercitationem rem veniam voluptas fugit.
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className='block relative'>
+                                <a href="#">
+                                    <div className='flex flex-col overflow-hidden w-[590.112px]'>
+                                        <div className='flex items-center justify-center max-x-full min-x-[500px] '>
+                                            <img height="640" width="500" alt="Không có mô tả ảnh." 
+                                                className=" object-cover"
+                                                src="https://scontent.fsgn15-1.fna.fbcdn.net/v/t39.30808-6/484817002_2012197379303639_5958930977464826073_n.jpg?stp=dst-jpg_s640x640_tt6&amp;_nc_cat=100&amp;ccb=1-7&amp;_nc_sid=833d8c&amp;_nc_eui2=AeG_gLVSVFv-CgNTarIlXKHC2zpzOxhPIKDbOnM7GE8goALtn-KeStUVXzOukK8meUhKqQTJO1kX9LjQIraNDXot&amp;_nc_ohc=8Bz-2ttvFOwQ7kNvgGTzAvB&amp;_nc_oc=AdkC11oLu3WnAW8ok3X83t9BX9gCtY55B2OcZN3mpTXBlHnG2SpelKEMYy-JH1g-mUTc46x8NHPLgpdSxlg4syMn&amp;_nc_zt=23&amp;_nc_ht=scontent.fsgn15-1.fna&amp;_nc_gid=e4IInKDzWxXF-8jr5CjImA&amp;oh=00_AYHrJlZ9DiYUXd0NpUwE2Z-CfHG9LbbusMc6uWDJtAjdtw&amp;oe=67EF6E16"/>
+                                            </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div className='block'>
+                            <div className='block'>
+                                <div className='block'>
+                                    <div className='flex items-center justify-end mx-[12px] pb-[6px] pt-[8px] leading-[20px]'>
+                                        <div className='flex grow-1 items-center overflow-hidden'>
+                                            <span className='flex items-center pl-[4px]'>
+                                                <span className='size-[18px] -ml-[4px] z-2'>
+                                                    <img 
+                                                        className="" height="18" role="presentation" width="18" 
+                                                        src="data:image/svg+xml,%3Csvg fill='none' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M16.0001 7.9996c0 4.418-3.5815 7.9996-7.9995 7.9996S.001 12.4176.001 7.9996 3.5825 0 8.0006 0C12.4186 0 16 3.5815 16 7.9996Z' fill='url(%23paint0_linear_15251_63610)'/%3E%3Cpath d='M16.0001 7.9996c0 4.418-3.5815 7.9996-7.9995 7.9996S.001 12.4176.001 7.9996 3.5825 0 8.0006 0C12.4186 0 16 3.5815 16 7.9996Z' fill='url(%23paint1_radial_15251_63610)'/%3E%3Cpath d='M16.0001 7.9996c0 4.418-3.5815 7.9996-7.9995 7.9996S.001 12.4176.001 7.9996 3.5825 0 8.0006 0C12.4186 0 16 3.5815 16 7.9996Z' fill='url(%23paint2_radial_15251_63610)' fill-opacity='.5'/%3E%3Cpath d='M7.3014 3.8662a.6974.6974 0 0 1 .6974-.6977c.6742 0 1.2207.5465 1.2207 1.2206v1.7464a.101.101 0 0 0 .101.101h1.7953c.992 0 1.7232.9273 1.4917 1.892l-.4572 1.9047a2.301 2.301 0 0 1-2.2374 1.764H6.9185a.5752.5752 0 0 1-.5752-.5752V7.7384c0-.4168.097-.8278.2834-1.2005l.2856-.5712a3.6878 3.6878 0 0 0 .3893-1.6509l-.0002-.4496ZM4.367 7a.767.767 0 0 0-.7669.767v3.2598a.767.767 0 0 0 .767.767h.767a.3835.3835 0 0 0 .3835-.3835V7.3835A.3835.3835 0 0 0 5.134 7h-.767Z' fill='%23fff'/%3E%3Cdefs%3E%3CradialGradient id='paint1_radial_15251_63610' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='rotate(90 .0005 8) scale(7.99958)'%3E%3Cstop offset='.5618' stop-color='%230866FF' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%230866FF' stop-opacity='.1'/%3E%3C/radialGradient%3E%3CradialGradient id='paint2_radial_15251_63610' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='rotate(45 -4.5257 10.9237) scale(10.1818)'%3E%3Cstop offset='.3143' stop-color='%2302ADFC'/%3E%3Cstop offset='1' stop-color='%2302ADFC' stop-opacity='0'/%3E%3C/radialGradient%3E%3ClinearGradient id='paint0_linear_15251_63610' x1='2.3989' y1='2.3999' x2='13.5983' y2='13.5993' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%2302ADFC'/%3E%3Cstop offset='.5' stop-color='%230866FF'/%3E%3Cstop offset='1' stop-color='%232B7EFF'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E"></img>
+                                                </span>
+                                                <span className='size-[18px] -ml-[4px] z-1'>
+                                                    <img 
+                                                        className="" height="18" width="18" 
+                                                        src="data:image/svg+xml,%3Csvg fill='none' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cg clip-path='url(%23clip0_15251_63610)'%3E%3Cpath d='M15.9963 8c0 4.4179-3.5811 7.9993-7.9986 7.9993-4.4176 0-7.9987-3.5814-7.9987-7.9992 0-4.4179 3.5811-7.9992 7.9987-7.9992 4.4175 0 7.9986 3.5813 7.9986 7.9992Z' fill='url(%23paint0_linear_15251_63610)'/%3E%3Cpath d='M15.9973 7.9992c0 4.4178-3.5811 7.9992-7.9987 7.9992C3.5811 15.9984 0 12.417 0 7.9992S3.5811 0 7.9986 0c4.4176 0 7.9987 3.5814 7.9987 7.9992Z' fill='url(%23paint1_radial_15251_63610)'/%3E%3Cpath d='M7.9996 5.9081c-.3528-.8845-1.1936-1.507-2.1748-1.507-1.4323 0-2.4254 1.328-2.4254 2.6797 0 2.2718 2.3938 4.0094 4.0816 5.1589.3168.2157.7205.2157 1.0373 0 1.6878-1.1495 4.0815-2.8871 4.0815-5.159 0-1.3517-.993-2.6796-2.4254-2.6796-.9811 0-1.822.6225-2.1748 1.507Z' fill='%23fff'/%3E%3C/g%3E%3Cdefs%3E%3CradialGradient id='paint1_radial_15251_63610' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='matrix(0 7.9992 -7.99863 0 7.9986 7.9992)'%3E%3Cstop offset='.5637' stop-color='%23E11731' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23E11731' stop-opacity='.1'/%3E%3C/radialGradient%3E%3ClinearGradient id='paint0_linear_15251_63610' x1='2.3986' y1='2.4007' x2='13.5975' y2='13.5993' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23FF74AE'/%3E%3Cstop offset='.5001' stop-color='%23FA2E3E'/%3E%3Cstop offset='1' stop-color='%23FF5758'/%3E%3C/linearGradient%3E%3CclipPath id='clip0_15251_63610'%3E%3Cpath fill='%23fff' d='M-.001.0009h15.9992v15.9984H-.001z'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E"/>
+                                                </span>
+                                                <span className='size-[18px] -ml-[4px] z-0'>
+                                                   <img 
+                                                        className="" height="18" width="18" 
+                                                        src="data:image/svg+xml,%3Csvg fill='none' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cg clip-path='url(%23clip0_15251_63610)'%3E%3Cpath d='M15.9953 7.9996c0 4.418-3.5816 7.9996-7.9996 7.9996S-.004 12.4176-.004 7.9996 3.5776 0 7.9957 0c4.418 0 7.9996 3.5815 7.9996 7.9996Z' fill='url(%23paint0_linear_15251_63610)'/%3E%3Cpath d='M15.9973 7.9992c0 4.4178-3.5811 7.9992-7.9987 7.9992C3.5811 15.9984 0 12.417 0 7.9992S3.5811 0 7.9986 0c4.4176 0 7.9987 3.5814 7.9987 7.9992Z' fill='url(%23paint1_radial_15251_63610)'/%3E%3Cpath d='M15.9953 7.9996c0 4.418-3.5816 7.9996-7.9996 7.9996S-.004 12.4176-.004 7.9996 3.5776 0 7.9957 0c4.418 0 7.9996 3.5815 7.9996 7.9996Z' fill='url(%23paint2_radial_15251_63610)' fill-opacity='.8'/%3E%3Cpath d='M12.5278 8.1957c.4057.1104.6772.4854.623.9024-.3379 2.6001-2.5167 4.9012-5.1542 4.9012s-4.8163-2.3011-5.1542-4.9012c-.0542-.417.2173-.792.623-.9024.8708-.237 2.5215-.596 4.5312-.596 2.0098 0 3.6605.359 4.5312.596Z' fill='%234B280E'/%3E%3Cpath d='M11.5809 12.3764c-.9328.9843-2.1948 1.6228-3.5841 1.6228-1.3892 0-2.6512-.6383-3.5839-1.6225a1.5425 1.5425 0 0 0-.016-.0174c.4475-1.0137 2.2-1.3599 3.5999-1.3599 1.4 0 3.1514.3468 3.5998 1.3599l-.0157.0171Z' fill='url(%23paint3_linear_15251_63610)'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M13.3049 5.8793c.1614-1.1485-.6387-2.2103-1.7872-2.3717l-.0979-.0138c-1.1484-.1614-2.2103.6388-2.3717 1.7872l-.0163.1164a.5.5 0 0 0 .9902.1392l.0163-.1164c.0846-.6016.6408-1.0207 1.2424-.9362l.0978.0138c.6016.0845 1.0207.6407.9362 1.2423l-.0164.1164a.5.5 0 0 0 .9903.1392l.0163-.1164ZM2.6902 5.8793c-.1614-1.1485.6387-2.2103 1.7872-2.3717l.0979-.0138c1.1484-.1614 2.2103.6388 2.3717 1.7872l.0164.1164a.5.5 0 1 1-.9903.1392l-.0163-.1164c-.0846-.6016-.6408-1.0207-1.2423-.9362l-.098.0138c-.6015.0845-1.0206.6407-.936 1.2423l.0163.1164a.5.5 0 0 1-.9902.1392l-.0164-.1164Z' fill='%231C1C1D'/%3E%3C/g%3E%3Cdefs%3E%3CradialGradient id='paint1_radial_15251_63610' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='matrix(0 7.9992 -7.99863 0 7.9986 7.9992)'%3E%3Cstop offset='.5637' stop-color='%23FF5758' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23FF5758' stop-opacity='.1'/%3E%3C/radialGradient%3E%3CradialGradient id='paint2_radial_15251_63610' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='rotate(45 -4.5272 10.9202) scale(10.1818)'%3E%3Cstop stop-color='%23FFF287'/%3E%3Cstop offset='1' stop-color='%23FFF287' stop-opacity='0'/%3E%3C/radialGradient%3E%3ClinearGradient id='paint0_linear_15251_63610' x1='2.396' y1='2.3999' x2='13.5954' y2='13.5993' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23FFF287'/%3E%3Cstop offset='1' stop-color='%23F68628'/%3E%3C/linearGradient%3E%3ClinearGradient id='paint3_linear_15251_63610' x1='5.1979' y1='10.7996' x2='5.245' y2='14.2452' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23FF60A4'/%3E%3Cstop offset='.2417' stop-color='%23FA2E3E'/%3E%3Cstop offset='1' stop-color='%23BC0A26'/%3E%3C/linearGradient%3E%3CclipPath id='clip0_15251_63610'%3E%3Cpath fill='%23fff' d='M-.002 0h16v15.9992h-16z'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E"></img>
+                                                </span>
+                                            </span>
+                                            <div>
+                                                <span className='font-normal pl-[4px] text-gray-300'>Bạn, Quang Khánh, Văn Linh và 26 người khác</span>
+                                            </div>
+                                        </div>
+                                {/* Tiếp ở đây */}
+                                        <div className='flex items-stretch justify-between -m-[6px] py-[5px] relative'></div>
+                                    </div>
+                                </div>
+                                <div className='block mx-[12px]'></div>
+                            </div>
+
+                            <div className='block mx-[12px] mb-[4px]'></div>
+
+                            <div className='block mx-[16px]'></div>
+
+                            <div className='block'></div>
+
+                            <div className='flex flex-col shrink-0 my-[8px] max-w-full relative'></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
   )

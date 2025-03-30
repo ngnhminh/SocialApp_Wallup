@@ -11,12 +11,14 @@ const Sidebar = () => {
           <div className="block grow-1">
             {/* Tính năng */}
             <div className=" flex flex-col w-full px-2 cursor-pointer">
-                  <div className="flex flex-col justify-center h-[52px] pl-2 hover:bg-base-100 rounded-xl ">
-                    <div className="flex gap-2 ">
-                      <img src="IMG_7810.jpg" alt="avatar" className=" size-[36px] inline-block rounded-full object-cover" /> 
-                      <span> Hải Minh</span>
+                  <a href="/profile">
+                    <div className="flex flex-col justify-center h-[52px] pl-2 hover:bg-base-100 rounded-xl ">
+                      <div className="flex gap-2 ">
+                        <img src="IMG_7810.jpg" alt="avatar" className=" size-[36px] inline-block rounded-full object-cover" /> 
+                        <span> Hải Minh</span>
+                      </div>
                     </div>
-                  </div>
+                  </a>
                   <div className="flex flex-col justify-center h-[52px] pl-2 hover:bg-base-100 rounded-xl ">
                     <div className="flex gap-2 ">
                     <div className="w-9 h-9 bg-no-repeat bg-cover" style={{

@@ -2,6 +2,7 @@ import React from 'react'
 import ProfileHeader from '../components/Proflie/ProfileHeader'
 import ProflieNav from '../components/Proflie/ProflieNav'
 import ProfileBody from '../components/Proflie/ProfileBody'
+import ChatWidget from '../components/ChatWidget'
 
 const ProfilePage = () => {
   return (
@@ -13,6 +14,7 @@ const ProfilePage = () => {
       <div className='flex flex-col items-center max-w-full'>
         <ProfileBody />
       </div>
+      <ChatWidget />
     </div>
   )
 }
