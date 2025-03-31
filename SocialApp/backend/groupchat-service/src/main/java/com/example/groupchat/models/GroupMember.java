@@ -11,7 +11,7 @@ import lombok.*;
 @AllArgsConstructor
 @Builder
 @Data
-public class GroupMembers {
+public class GroupMember {
     @Id
     private String id;
     private String groupChatId;

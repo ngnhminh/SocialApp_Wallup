@@ -1,4 +1,5 @@
-package com.example.message.models;
+package com.example.groupchat.models;
+
 import java.time.LocalDate;
 
 import org.springframework.data.annotation.Id;
@@ -8,24 +9,23 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.*;
 
-@Data
+@Document(collection = "GroupMessages")
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Document(collection = "Messages")
-public class Messages {
+@Data
+public class GroupMessage {
     @Id
     private String id;
-
-    private String senderId; //User người gửi 
-
-    private String receiverId; //User người nhận
+    private String groupId;
+    private String senderId; //User
     private String messageText;
 
     @Builder.Default
-    private Boolean isRead = false;
-    
-    @Builder.Default
+    private boolean isRead = false;
+
     @JsonFormat(pattern = "dd/MM/yyyy")
+    @Builder.Default
     private LocalDate createdAt = LocalDate.now();
+    
 }

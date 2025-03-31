@@ -1,9 +1,8 @@
 import { create } from "zustand";
-import { axiosInstance } from "../lib/axios.js";
+import UserApi from "../api/UserApi.js";
 import toast from "react-hot-toast";
 import { io } from "socket.io-client";
 
-const BASE_URL = import.meta.env.MODE === "development" ? "http://localhost:5000" : "/";
 
 export const useAuthStore = create((set, get) => ({
   authUser: null,
@@ -45,13 +44,29 @@ export const useAuthStore = create((set, get) => ({
   login: async (data) => {
     set({ isLoggingIn: true });
     try {
-      const res = await axiosInstance.post("/auth/login", data);
-      set({ authUser: res.data });
-      toast.success("Logged in successfully");
-
+      var checkemail = await UserApi.getUserByEmail(data.email);
+      if(!checkemail){
+        toast.error("Tài khoản không tồn tại");
+        return;
+      }else{
+        const checkpassword = await UserApi.getUserByEmailAndPassword(data.email, data.password);
+        if(!checkpassword){
+          toast.error("Sai mật khẩu");
+          return;
+        }
+      }
+      var user = await UserApi.getUserByEmailAndPassword(data.email, data.password);
+      set({ authUser: user.data });
+      toast.success("Logged in successfully");z
       get().connectSocket();
     } catch (error) {
-      toast.error(error.response.data.message);
+      const status = error.response?.status;
+      if (status === 404) {
+          toast.error("Tài khoản không tồn tại");
+      } else {
+          toast.error("Lỗi khi đăng nhập, vui lòng thử lại!");
+          console.error("Lỗi đăng nhập:", error);
+      }
     } finally {
       set({ isLoggingIn: false });
     }

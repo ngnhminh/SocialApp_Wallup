@@ -18,12 +18,12 @@ const App = () => {
       {location.pathname !== '/login' && location.pathname !== '/signup' && <Navbar />}
 
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        {/* <Route path="/" element={<HomePage />} /> */}
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/settings" element={<SettingPage />} />
+        {/* <Route path="/settings" element={<SettingPage />} />
         <Route path="/profile" element={<ProfilePage />} />
-        <Route path="/chat" element={<ChatPage />} />
+        <Route path="/chat" element={<ChatPage />} /> */}
       </Routes>
 
       <Toaster />
