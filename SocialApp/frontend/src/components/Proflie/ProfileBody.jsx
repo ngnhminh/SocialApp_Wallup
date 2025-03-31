@@ -1,8 +1,34 @@
-import React from 'react'
-import { AlignJustify, Grid2X2, Settings, SlidersHorizontal } from 'lucide-react'
+import React, { useState,useRef} from 'react'
+import { AlignJustify, ChevronDown, Forward, MessageCircle, Send, Settings, SlidersHorizontal, X } from 'lucide-react'
 import { Ellipsis } from 'lucide-react';
+import toast from "react-hot-toast";
 
 const ProfileBody = () => {
+    const [isExpanded, setIsExpanded] = useState(false);
+    const [text, setText] = useState("");
+    const [imagePreview, setImagePreview] = useState(null);
+    const fileInputRef = useRef(null);
+  
+    const handleImageChange = (e) => {
+      const file = e.target.files[0];
+      if (!file.type.startsWith("image/")) {
+        toast.error("Please select an image file");
+        return;
+      }
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setImagePreview(reader.result);
+      };
+      reader.readAsDataURL(file);
+    };
+  
+    const removeImage = () => {
+      setImagePreview(null);
+      if (fileInputRef.current) fileInputRef.current.value = "";
+    };
+  
+
+
   return (
     <div className='block box-border px-[16px] mt-[16px] max-w-full w-[1063px]'>
 
@@ -698,7 +724,7 @@ const ProfileBody = () => {
                                 <a href="#" className='flex'>
                                     <button className='btn btn-ghost hover:bg-gray-700 rounded-lg h-[40px] w-[279.062px] min-h-[16px] relative'>
                                         <div className='flex flex-col mr-[4px] '>
-                                            <i className="inline-block size-4 bg-no-repeatfilter invert" 
+                                            <i className="inline-block size-4 bg-no-repeat filter invert" 
                                                 style={{
                                                     fill: "white",
                                                     backgroundImage: "url('https://static.xx.fbcdn.net/rsrc.php/v4/yI/r/MHWISMefH0t.png?_nc_eui2=AeHTcbWJgotwPjCh7ZnSd-yJDGPiywJHNyoMY-LLAkc3KlvVJdWWiFFRZEzawrqRd74SqO6QuowgplFPaff-W6HL')",
@@ -786,11 +812,13 @@ const ProfileBody = () => {
                             </div>
                         </div>
 
-                        <div className='block'>
+                        <div className='block space-y-1'>
+
                             <div className='block'>
                                 <div className='block'>
-                                    <div className='flex items-center justify-end mx-[12px] pb-[6px] pt-[8px] leading-[20px]'>
-                                        <div className='flex grow-1 items-center overflow-hidden'>
+
+                                    <div className='flex items-center justify-end mx-[12px] pb-[6px] pt-[8px] leading-[20px] border-b border-gray-600'>
+                                        <div className='flex grow-1 items-center overflow-hidden '>
                                             <span className='flex items-center pl-[4px]'>
                                                 <span className='size-[18px] -ml-[4px] z-2'>
                                                     <img 
@@ -801,6 +829,7 @@ const ProfileBody = () => {
                                                     <img 
                                                         className="" height="18" width="18" 
                                                         src="data:image/svg+xml,%3Csvg fill='none' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cg clip-path='url(%23clip0_15251_63610)'%3E%3Cpath d='M15.9963 8c0 4.4179-3.5811 7.9993-7.9986 7.9993-4.4176 0-7.9987-3.5814-7.9987-7.9992 0-4.4179 3.5811-7.9992 7.9987-7.9992 4.4175 0 7.9986 3.5813 7.9986 7.9992Z' fill='url(%23paint0_linear_15251_63610)'/%3E%3Cpath d='M15.9973 7.9992c0 4.4178-3.5811 7.9992-7.9987 7.9992C3.5811 15.9984 0 12.417 0 7.9992S3.5811 0 7.9986 0c4.4176 0 7.9987 3.5814 7.9987 7.9992Z' fill='url(%23paint1_radial_15251_63610)'/%3E%3Cpath d='M7.9996 5.9081c-.3528-.8845-1.1936-1.507-2.1748-1.507-1.4323 0-2.4254 1.328-2.4254 2.6797 0 2.2718 2.3938 4.0094 4.0816 5.1589.3168.2157.7205.2157 1.0373 0 1.6878-1.1495 4.0815-2.8871 4.0815-5.159 0-1.3517-.993-2.6796-2.4254-2.6796-.9811 0-1.822.6225-2.1748 1.507Z' fill='%23fff'/%3E%3C/g%3E%3Cdefs%3E%3CradialGradient id='paint1_radial_15251_63610' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='matrix(0 7.9992 -7.99863 0 7.9986 7.9992)'%3E%3Cstop offset='.5637' stop-color='%23E11731' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23E11731' stop-opacity='.1'/%3E%3C/radialGradient%3E%3ClinearGradient id='paint0_linear_15251_63610' x1='2.3986' y1='2.4007' x2='13.5975' y2='13.5993' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23FF74AE'/%3E%3Cstop offset='.5001' stop-color='%23FA2E3E'/%3E%3Cstop offset='1' stop-color='%23FF5758'/%3E%3C/linearGradient%3E%3CclipPath id='clip0_15251_63610'%3E%3Cpath fill='%23fff' d='M-.001.0009h15.9992v15.9984H-.001z'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E"/>
+                                                
                                                 </span>
                                                 <span className='size-[18px] -ml-[4px] z-0'>
                                                    <img 
@@ -809,23 +838,178 @@ const ProfileBody = () => {
                                                 </span>
                                             </span>
                                             <div>
-                                                <span className='font-normal pl-[4px] text-gray-300'>Bạn, Quang Khánh, Văn Linh và 26 người khác</span>
+                                                <span className='font-normal pl-[4px] text-gray-300'>Bạn, Quang Khánh, Văn Linh và 368 người khác</span>
                                             </div>
                                         </div>
-                                {/* Tiếp ở đây */}
-                                        <div className='flex items-stretch justify-between -m-[6px] py-[5px] relative'></div>
+                                        <div className='flex items-stretch justify-between -m-[6px] py-[5px] relative'>
+                                            <span className='flex items-center font-normal pr-[4px] text-gray-300'> 5 bình luận </span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div className='flex items-center justify-between mx-[12px] pb-[6px] pt-[8px] leading-[20px] border-b border-gray-600'>
+                                        <button className='btn btn-ghost grow-1 h-[32px] hover:bg-gray-700'>
+                                            <img 
+                                                className="" height="18" width="18" 
+                                                src="data:image/svg+xml,%3Csvg fill='none' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cg clip-path='url(%23clip0_15251_63610)'%3E%3Cpath d='M15.9963 8c0 4.4179-3.5811 7.9993-7.9986 7.9993-4.4176 0-7.9987-3.5814-7.9987-7.9992 0-4.4179 3.5811-7.9992 7.9987-7.9992 4.4175 0 7.9986 3.5813 7.9986 7.9992Z' fill='url(%23paint0_linear_15251_63610)'/%3E%3Cpath d='M15.9973 7.9992c0 4.4178-3.5811 7.9992-7.9987 7.9992C3.5811 15.9984 0 12.417 0 7.9992S3.5811 0 7.9986 0c4.4176 0 7.9987 3.5814 7.9987 7.9992Z' fill='url(%23paint1_radial_15251_63610)'/%3E%3Cpath d='M7.9996 5.9081c-.3528-.8845-1.1936-1.507-2.1748-1.507-1.4323 0-2.4254 1.328-2.4254 2.6797 0 2.2718 2.3938 4.0094 4.0816 5.1589.3168.2157.7205.2157 1.0373 0 1.6878-1.1495 4.0815-2.8871 4.0815-5.159 0-1.3517-.993-2.6796-2.4254-2.6796-.9811 0-1.822.6225-2.1748 1.507Z' fill='%23fff'/%3E%3C/g%3E%3Cdefs%3E%3CradialGradient id='paint1_radial_15251_63610' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='matrix(0 7.9992 -7.99863 0 7.9986 7.9992)'%3E%3Cstop offset='.5637' stop-color='%23E11731' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23E11731' stop-opacity='.1'/%3E%3C/radialGradient%3E%3ClinearGradient id='paint0_linear_15251_63610' x1='2.3986' y1='2.4007' x2='13.5975' y2='13.5993' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23FF74AE'/%3E%3Cstop offset='.5001' stop-color='%23FA2E3E'/%3E%3Cstop offset='1' stop-color='%23FF5758'/%3E%3C/linearGradient%3E%3CclipPath id='clip0_15251_63610'%3E%3Cpath fill='%23fff' d='M-.001.0009h15.9992v15.9984H-.001z'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E"/>
+                                            <span className='text-red-500'>Yêu thích</span>        
+                                        </button>
+                                        <button className='btn btn-ghost grow-1 h-[32px] hover:bg-gray-700'>
+                                            <MessageCircle />
+                                            <span className=''>Bình luận</span>        
+                                        </button>
+                                        <button className='btn btn-ghost grow-1 h-[32px] hover:bg-gray-700'>
+                                            <Forward />
+                                            <span className=''>Chia sẻ</span>        
+                                        </button>
                                     </div>
                                 </div>
-                                <div className='block mx-[12px]'></div>
                             </div>
 
                             <div className='block mx-[12px] mb-[4px]'></div>
 
-                            <div className='block mx-[16px]'></div>
+                            <div className='block mx-[16px]'>
+                                <div className='flex items-center text-start h-[32px] cursor-pointer'>
+                                    <span className='font-normal pr-[4px] text-gray-300' >Xem thêm bình luận</span>
+                                </div>
+                            </div>
 
-                            <div className='block'></div>
+                            <div className='block'>
+                                <div className='flex items-start pl-[12px] pt-[4px]'>
+                                    <div className='block mr-[6px] mt-[2px]'>
+                                        <img
+                                            className=' size-[32px] rounded-full object-cover'
+                                            src="https://scontent.fsgn5-10.fna.fbcdn.net/v/t39.30808-1/453843110_1516769685626019_6257118906584018810_n.jpg?stp=cp0_dst-jpg_s32x32_tt6&_nc_cat=106&ccb=1-7&_nc_sid=1d2534&_nc_eui2=AeGGK42dN8NofiUQtCaicHudVARSmBhjzd9UBFKYGGPN34sBZas5BfLlRFKYH9Tq-s09VIzJdFsp5w9CfZ8b6FQ1&_nc_ohc=fZJJdCsr18wQ7kNvgGZWCLZ&_nc_oc=Adln3L_cIrSxGaz6kxlH6qptZMif2UwxR9kfaw5Fac8k1_l1Y0jG-ua_079_5w50SRI&_nc_zt=24&_nc_ht=scontent.fsgn5-10.fna&_nc_gid=w6iUqRudMaEvtE8z0DjXkw&oh=00_AYGpH1USZ3zygImfCeGypOfIt0oTY4_HkK-1H01TFWMPVg&oe=67F06E90" alt="" />
+                                    </div>
+                                    <div className='flex flex-col grow-1 pr-[16px]'>
+                                        <div className='block'>
+                                            <div className='flex flex-col size-fit text-wrap h-fit px-[12px] py-[8px] leading-[16px] rounded-2xl bg-gray-700   '>
+                                                <a href="#">
+                                                    <span className='inline text-[13px] font-semibold'>Minh Đức</span>
+                                                </a>
+                                                <span className='text-[15px] font-normal py-[4px] '>Ô bạn Duy Thắng đi rồi cơ à</span>
+                                            </div>
+                                        </div>
+                                        <div className='inline-flex p-[3px] mx-[4px] h-[15px] min-h-[15px] box-border'>
+                                            <span className='text-[12px] font-semibold leading-[12px] cursor-pointer'>
+                                                <span className='px-[8px] hover:underline'>1 năm</span>
+                                                <span className='px-[8px] hover:underline'>Thích</span>
+                                                <span className='px-[8px] hover:underline'>Phản hồi</span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
-                            <div className='flex flex-col shrink-0 my-[8px] max-w-full relative'></div>
+                            <div className='flex flex-col shrink-0 my-[8px] max-w-full relative'>
+                                <div className='flex px-[12px]'>
+                                    <div className='block mr-[6px] mt-[2px] box-content'>
+                                        <a href="#" className='relative' >
+                                            <img
+                                                className='size-[32px] rounded-full object-cover' 
+                                                src="IMG_7810.jpg" alt="" />
+                                            <ChevronDown className="absolute bottom-0 right-0 size-3 bg-gray-700 rounded-full" />
+                                        </a>
+                                    </div>
+
+                                    <div className='flex flex-col items-start gap-2 grow-1 '>
+                               
+                                        <label 
+                                            className={`input rounded-2xl w-full border-none !outline-none transition-all duration-300${
+                                                    isExpanded ? "flex flex-col h-full items-start" : ""}`}
+                                            onClick={() => setIsExpanded(true)}
+                                            // onBlur={() => setIsExpanded(false)}
+                                            >
+                                            <input type="text" placeholder="Viết bình luận ..." 
+                                                className='grow-1' value={text}
+                                                onChange={(e) => setText(e.target.value)} />
+                                            <input type="file" accept="image/*" className="hidden"
+                                                ref={fileInputRef}
+                                                onChange={handleImageChange}
+                                            />
+                                            <div className={`block ${isExpanded ? "flex justify-between w-full" : ""}`}>
+                                                <div className='block'>
+                                                    <button className="btn btn-ghost btn-circle hover:bg-gray-700" >
+                                                        <i className="w-4 h-4 filter invert" 
+                                                        style={{
+                                                            backgroundImage: "url('https://static.xx.fbcdn.net/rsrc.php/v4/yU/r/ETqWQ46BPZV.png?_nc_eui2=AeFVm6iA5w719JPLf1VjI6hKm0K8MjzVYICbQrwyPNVggKhg2yflg5kAJScTLnUbh8jGfLmxTiYScsaSn93PhtVG')",
+                                                            backgroundPosition: "0px -201px",
+                                                            backgroundSize: "auto"
+                                                        }}>
+                                                        </i>
+                                                    </button>
+
+                                                    <button className="btn btn-ghost btn-circle hover:bg-gray-700" >
+                                                        <i className="w-4 h-4 filter invert" 
+                                                        style={{
+                                                            backgroundImage: "url('https://static.xx.fbcdn.net/rsrc.php/v4/yU/r/ETqWQ46BPZV.png?_nc_eui2=AeFVm6iA5w719JPLf1VjI6hKm0K8MjzVYICbQrwyPNVggKhg2yflg5kAJScTLnUbh8jGfLmxTiYScsaSn93PhtVG')",
+                                                            backgroundPosition: "0px -269px",
+                                                            backgroundSize: "auto"
+                                                        }}>
+                                                        </i>
+                                                    </button>
+
+                                                    <button className={`btn btn-ghost btn-circle hover:bg-gray-700 
+                                                            ${imagePreview ? "text-emerald-500" : "text-zinc-400"}`}
+                                                            onClick={() => fileInputRef.current?.click()} >
+                                                        <i className="w-4 h-4 filter invert" 
+                                                        style={{
+                                                            backgroundImage: "url('https://static.xx.fbcdn.net/rsrc.php/v4/yU/r/ETqWQ46BPZV.png?_nc_eui2=AeFVm6iA5w719JPLf1VjI6hKm0K8MjzVYICbQrwyPNVggKhg2yflg5kAJScTLnUbh8jGfLmxTiYScsaSn93PhtVG')",
+                                                            backgroundPosition: "0px -235px",
+                                                            backgroundSize: "auto"
+                                                        }}>
+                                                        </i>
+                                                    </button>
+
+                                                    <button className="btn btn-ghost btn-circle hover:bg-gray-700" >
+                                                        <i className="w-4 h-4 filter invert" 
+                                                        style={{
+                                                            backgroundImage: "url('https://static.xx.fbcdn.net/rsrc.php/v4/yU/r/ETqWQ46BPZV.png?_nc_eui2=AeFVm6iA5w719JPLf1VjI6hKm0K8MjzVYICbQrwyPNVggKhg2yflg5kAJScTLnUbh8jGfLmxTiYScsaSn93PhtVG')",
+                                                            backgroundPosition: "0px -286px",
+                                                            backgroundSize: "auto"
+                                                        }}>
+                                                        </i>
+                                                    </button>
+                                                    
+                                                    <button className="btn btn-ghost btn-circle hover:bg-gray-700" >
+                                                        <i className="w-4 h-4 filter invert" 
+                                                        style={{
+                                                            backgroundImage: "url('https://static.xx.fbcdn.net/rsrc.php/v4/yU/r/ETqWQ46BPZV.png?_nc_eui2=AeFVm6iA5w719JPLf1VjI6hKm0K8MjzVYICbQrwyPNVggKhg2yflg5kAJScTLnUbh8jGfLmxTiYScsaSn93PhtVG')",
+                                                            backgroundPosition: "0px -388px",
+                                                            backgroundSize: "auto"
+                                                        }}>
+                                                        </i>
+                                                    </button>
+                                                </div>
+                                                {isExpanded && (
+                                                    <button
+                                                        type="submit"
+                                                        className="cursor-pointer size-[32px] text-blue-700"
+                                                        disabled={!text.trim() && !imagePreview}>
+                                                        <Send size={16} strokeWidth={5} />
+                                                    </button>
+                                                )}
+                                            </div>
+                                        </label>
+                                        {imagePreview && (
+                                            <div className="mb-3 flex items-center gap-2">
+                                            <div className="relative">
+                                                <img
+                                                src={imagePreview}
+                                                alt="Preview"
+                                                className="w-20 h-20 object-cover rounded-lg border border-zinc-700"
+                                                />
+                                                <button
+                                                onClick={removeImage}
+                                                className="btn btn-circle absolute -top-1.5 -right-1.5 size-5 rounded-full bg-base-200"
+                                                type="button">
+                                                    <X className="size-3" />
+                                                </button>
+                                            </div>
+                                            </div>
+                                        )}
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
