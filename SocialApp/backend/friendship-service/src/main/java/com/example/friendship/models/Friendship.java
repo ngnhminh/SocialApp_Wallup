@@ -12,7 +12,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @Data
 
-class Friendships {
+public class Friendship {
     @Id
     private String id;
 

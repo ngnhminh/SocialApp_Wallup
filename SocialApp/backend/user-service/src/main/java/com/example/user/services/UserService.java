@@ -22,6 +22,10 @@ public class UserService {
         return Optional.ofNullable(userRepository.findByUsername(username));
     }
 
+    public Optional<User> getUserByEmail(String email) {
+        return Optional.ofNullable(userRepository.findByEmail(email));
+    }
+
     //Hàm lấy tất cả danh sách người dùng
     public List<User> getAllUsers(){
         return userRepository.findAll();
@@ -33,7 +37,7 @@ public class UserService {
     }
 
     //Hàm xóa người dùng qua id
-    public boolean deletetUserById(String id){
+    public boolean deleteUserById(String id){
         if(userRepository.existsById(id)){
             userRepository.deleteById(id);
             return true;
@@ -43,5 +47,13 @@ public class UserService {
 
     public Optional<User> getUserById(String id){
         return userRepository.findById(id);
+    }
+
+    public Optional<User> getUserByUsernameAndPassword(String username, String password) {
+        return Optional.ofNullable(userRepository.findByUsernameAndPassword(username, password));
+    }
+
+    public Optional<User> getUserByEmailAndPassword(String email, String password) {
+        return Optional.ofNullable(userRepository.findByEmailAndPassword(email, password));
     }
 }
