@@ -49,16 +49,16 @@ export const useAuthStore = create((set, get) => ({
         toast.error("Tài khoản không tồn tại");
         return;
       }else{
-        const checkpassword = await UserApi.getUserByEmailAndPassword(data.email, data.password);
-        if(!checkpassword){
+        const user = await UserApi.getUserByEmailAndPassword(data.email, data.password);
+        if(!user){
           toast.error("Sai mật khẩu");
           return;
+        }else{
+          set({ authUser: user.data });
+          toast.success("Logged in successfully");z
+          get().connectSocket();
         }
       }
-      var user = await UserApi.getUserByEmailAndPassword(data.email, data.password);
-      set({ authUser: user.data });
-      toast.success("Logged in successfully");z
-      get().connectSocket();
     } catch (error) {
       const status = error.response?.status;
       if (status === 404) {
