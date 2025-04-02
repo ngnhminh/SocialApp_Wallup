@@ -2,85 +2,60 @@ import { create } from "zustand";
 import UserApi from "../api/UserApi.js";
 import toast from "react-hot-toast";
 import { io } from "socket.io-client";
-
+import BASE_URL from '../config/config.js';
 
 export const useAuthStore = create((set, get) => ({
-  authUser: null,
   isSigningUp: false,
   isLoggingIn: false,
   isUpdatingProfile: false,
   isCheckingAuth: true,
   onlineUsers: [],
-  socket: null,
+  authUser: null,
+
   
-  checkAuth: async () => {
-    try {
-      const res = await axiosInstance.get("/auth/check");
-
-      set({ authUser: res.data });
-      get().connectSocket();
-    } catch (error) {
-      console.log("Error in checkAuth:", error);
-      set({ authUser: null });
-    } finally {
-      set({ isCheckingAuth: false });
-    }
-  },
-
-  signup: async (data) => {
+  signup: async (data, navigate) => {
     set({ isSigningUp: true });
-    try {
-      const res = await axiosInstance.post("/auth/signup", data);
-      set({ authUser: res.data });
-      toast.success("Account created successfully");
-      get().connectSocket();
-    } catch (error) {
-      toast.error(error.response.data.message);
-    } finally {
-      set({ isSigningUp: false });
+
+    const checkemail = await UserApi.checkEmailExists(data.email);
+    if (checkemail.success) {
+        toast.error("Email đã tồn tại");
+        set({ isSigningUp: false });
+        return;
     }
+
+    const response = await UserApi.createUser(data);
+    if (response.success) {
+        toast.success("Tạo tài khoản thành công");
+        navigate("/Login");
+    } else {
+        toast.error(response.error);
+    }
+    set({ isSigningUp: false });
   },
 
-  login: async (data) => {
+  login: async (data, navigate) => {
     set({ isLoggingIn: true });
-    try {
-      var checkemail = await UserApi.getUserByEmail(data.email);
-      if(!checkemail){
-        toast.error("Tài khoản không tồn tại");
+
+    if(data.email == ""){
+      toast.error("Email không được rỗng");
+      return;
+    }else if(data.password == ""){
+      toast.error("Không được để trống mật khẩu");
+      set({ isLoggingIn: false });
+      return;
+    }else{
+      const user = await UserApi.getUserByEmailAndPassword(data.email, data.password);
+      if(!user.success){
+        toast.error(user.error);
+        set({ isLoggingIn: false });
         return;
       }else{
-        const user = await UserApi.getUserByEmailAndPassword(data.email, data.password);
-        if(!user){
-          toast.error("Sai mật khẩu");
-          return;
-        }else{
-          set({ authUser: user.data });
-          toast.success("Logged in successfully");z
-          get().connectSocket();
-        }
+        sessionStorage.setItem("user", JSON.stringify(user.data));
+        toast.success("Đăng nhập thành công");
+        navigate("/Home");
       }
-    } catch (error) {
-      const status = error.response?.status;
-      if (status === 404) {
-          toast.error("Tài khoản không tồn tại");
-      } else {
-          toast.error("Lỗi khi đăng nhập, vui lòng thử lại!");
-          console.error("Lỗi đăng nhập:", error);
-      }
-    } finally {
-      set({ isLoggingIn: false });
     }
-  },
-
-  logout: async () => {
-    try {
-      await axiosInstance.post("/auth/logout");
-      set({ authUser: null });
-      toast.success("Logged out successfully");
-      get().disconnectSocket();
-    } catch (error) {
-      toast.error(error.response.data.message);
-    }
+    set({ isLoggingIn: false });
   },
 
   updateProfile: async (data) => {
@@ -95,26 +70,5 @@ export const useAuthStore = create((set, get) => ({
     } finally {
       set({ isUpdatingProfile: false });
     }
-  },
-
-  connectSocket: () => {
-    const { authUser } = get();
-    if (!authUser || get().socket?.connected) return;
-
-    const socket = io(BASE_URL, {
-      query: {
-        userId: authUser._id,
-      },
-    }); 
-    socket.connect();
-
-    set({ socket: socket });
-
-    socket.on("getOnlineUsers", (userIds) => {
-      set({ onlineUsers: userIds });
-    });
-  },
-  disconnectSocket: () => {
-    if (get().socket?.connected) get().socket.disconnect();
-  },
+  }
 }));

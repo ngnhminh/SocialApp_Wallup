@@ -1,16 +1,9 @@
 package com.example.user.models;
-
-import java.time.LocalDate;
-
+import java.time.Instant;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-
 import com.fasterxml.jackson.annotation.JsonFormat;
-
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Document(collection = "Users")
 @Data
@@ -26,11 +19,13 @@ public class User {
     private String fullName;
     private String avatarUrl;
     private String bio;
-    
-    @JsonFormat(pattern = "dd/MM/yyyy")
+    private String backgroundAvatarUrl;
+
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'", timezone = "UTC") // ISO 8601 format
     @Builder.Default
-    private LocalDate createdAt = LocalDate.now();
-    @JsonFormat(pattern = "dd/MM/yyyy")
+    private Instant createdAt = Instant.now();
+
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'", timezone = "UTC")
     @Builder.Default
-    private LocalDate updatedAt = LocalDate.now();
+    private Instant updatedAt = Instant.now();
 }

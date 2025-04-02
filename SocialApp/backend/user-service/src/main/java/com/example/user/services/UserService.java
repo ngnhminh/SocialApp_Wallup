@@ -22,8 +22,8 @@ public class UserService {
         return Optional.ofNullable(userRepository.findByUsername(username));
     }
 
-    public Optional<User> getUserByEmail(String email) {
-        return Optional.ofNullable(userRepository.findByEmail(email));
+    public User getUserByEmail(String email) {
+        return userRepository.findByEmail(email).orElse(null);
     }
 
     //Hàm lấy tất cả danh sách người dùng
@@ -45,15 +45,17 @@ public class UserService {
         return false;
     }
 
-    public Optional<User> getUserById(String id){
-        return userRepository.findById(id);
+    public User getUserById(String id){
+        return userRepository.findById(id).orElse(null);
     }
 
     public Optional<User> getUserByUsernameAndPassword(String username, String password) {
         return Optional.ofNullable(userRepository.findByUsernameAndPassword(username, password));
     }
 
-    public Optional<User> getUserByEmailAndPassword(String email, String password) {
-        return Optional.ofNullable(userRepository.findByEmailAndPassword(email, password));
+    public User getUserByEmailAndPassword(String email, String password) {
+        return userRepository.findByEmailAndPassword(email, password).orElse(null);
     }
+        
+
 }

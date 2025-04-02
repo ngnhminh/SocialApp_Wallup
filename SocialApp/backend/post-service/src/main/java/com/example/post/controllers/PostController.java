@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.post.models.Post;
 import com.example.post.services.PostService;
 
+
 @RestController
 @RequestMapping("/api/posts")
 public class PostController {
@@ -22,6 +23,7 @@ public class PostController {
     public PostController(PostService postService) {
         this.postService = postService;
     }
+
 
     @GetMapping("/{id}")
     public ResponseEntity<List<Post>> getAllUserPostsById(@PathVariable String id) {

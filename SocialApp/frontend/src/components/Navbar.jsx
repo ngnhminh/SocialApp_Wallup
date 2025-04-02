@@ -1,12 +1,24 @@
 import { Link } from "react-router-dom";
 import { House, Search, Store, TvMinimalPlay, Gamepad, Grip, Bell, UserRound, ChevronDown } from "lucide-react";
 import { MessageIcon, NotifyIcon,GridIcon } from "./icons/Icon";
-
-
-
+import {useAuthStore} from '../store/useAuthStore'; 
+import { useEffect } from "react";
 
 const Navbar = () => {
+  const { authUser, socket, connectSocket, disconnectSocket } = useAuthStore();
 
+  useEffect(() => {
+    // Tạo socket khi user đã đăng nhập
+    if (authUser && !socket?.connected) {
+      connectSocket();
+    }
+  
+    return () => {
+      if (socket?.connected) {
+        disconnectSocket();
+      }
+    };
+  }, [authUser, socket, connectSocket, disconnectSocket]);
 
   return (
   <div className="block fixed top-0 right-0 left-0 z-999 border-y bg-base-100 border-gray-600">

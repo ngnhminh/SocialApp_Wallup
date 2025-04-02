@@ -6,8 +6,6 @@ import Contacts from "../components/Home/Contacts";
 import ChatWidget from '../components/ChatWidget';
 
 const HomePage = () => {
-
-
   return (
     
     <div className=' flex flex-col  relative top-[56px] '>

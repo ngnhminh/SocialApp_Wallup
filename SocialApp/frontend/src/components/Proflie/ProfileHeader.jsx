@@ -1,7 +1,11 @@
 import { Camera, ChevronDown, Pencil, Plus } from 'lucide-react'
 import React from 'react'
+import { useEffect } from "react";
+import { useAuth } from "../../context/AuthProvider";
 
 const ProfileHeader = () => {
+    const { user } = useAuth();
+
   return (
     <div className='block'>
 
@@ -53,9 +57,14 @@ const ProfileHeader = () => {
                     <div className='flex self-center grow-1 mt-[32px] mb-[16px] '>
                         <div className='flex flex-col box-border max-w-full min-h-0 relative '>
                             <div className='block leading-[16.08px] my-[8px]'>
-                                <span className='font-bold leading-[38px] text-[32px] max-w-full min-w-0 break-words text-start'>
-                                    Hải Minh
-                                </span>
+                                {/* Lấy tên user */}
+                                {user ? (
+                                    <span className='font-bold leading-[38px] text-[32px] max-w-full min-w-0 break-words text-start'>
+                                        {user.fullName}
+                                    </span>
+                                    ) : (
+                                    <span>Loading...</span>
+                                    )}
                                 <div className='flex flex-col items-start max-w-full pt-[8px] box-border relative '>
                                     <a href='#' className=' hover:underline text-[15px] font-normal block break-words max-w-full min-w-0'>
                                         215 người bạn

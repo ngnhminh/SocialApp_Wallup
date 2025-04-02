@@ -5,7 +5,13 @@ import java.util.Optional;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.example.user.models.User;
 import com.example.user.services.UserService;
@@ -31,9 +37,11 @@ public class UserController {
     // Tìm tài khoản theo email
     @GetMapping("/email/{email}")
     public ResponseEntity<User> getUserByEmail(@PathVariable String email) {
-        Optional<User> user = userService.getUserByEmail(email);
-        return user.map(ResponseEntity::ok)
-                   .orElseGet(() -> ResponseEntity.notFound().build());
+        User user = userService.getUserByEmail(email);
+        if (user == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
+        return ResponseEntity.ok(user);
     }
 
     // Kiểm tra tài khoản qua username và password
@@ -46,9 +54,11 @@ public class UserController {
 
     @GetMapping("/checkloginwitemail/{email}/{password}")
     public ResponseEntity<User> getUserByEmailAndPassword(@PathVariable String email, @PathVariable String password) {
-        Optional<User> user = userService.getUserByEmailAndPassword(email, password);
-        return user.map(ResponseEntity::ok)
-                   .orElseGet(() -> ResponseEntity.notFound().build());
+        User user = userService.getUserByEmailAndPassword(email, password);
+        if (user == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
+        return ResponseEntity.ok(user);
     }
 
     // Lấy danh sách tất cả người dùng
@@ -58,7 +68,7 @@ public class UserController {
     }
     
     // Tạo người dùng mới
-    @PostMapping
+    @PostMapping("/createUser")
     public ResponseEntity<User> createUser(@RequestBody User user){
         User savedUser = userService.createUser(user);
         return ResponseEntity.status(HttpStatus.CREATED).body(savedUser);
@@ -71,4 +81,5 @@ public class UserController {
         return deleted ? ResponseEntity.ok("User xóa thành công") 
                        : ResponseEntity.status(HttpStatus.NOT_FOUND).body("Không tìm thấy user");
     }
+
 }
